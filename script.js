@@ -52,7 +52,9 @@ function loaderanimation() {
         y: 120,
         stagger: 0.2
     })    
-
+    tl.from(".hero-before", {
+        opacity: 0
+    })
     tl.to("#loader", {
         display: "none"
     })
