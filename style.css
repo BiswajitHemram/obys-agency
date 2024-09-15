@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "Plain Light";
+    src: url("./fonts/plain-light-webfont.woff2");
+}
+
+@font-face {
+    font-family: "Silk Serif";
+    src: url("./fonts/silkserif-regularitalic-webfont.woff2");
+}
+
 /* Custom CSS Reset */
 * {
   margin: 0;
@@ -16,7 +26,8 @@ body{
     overflow-x: hidden;
 }
 
-#cursor{
+/* custom cursor */
+#cursor {
     display: none;
     width: 2.7vw;
     height: 2.7vw;
@@ -26,8 +37,10 @@ body{
     border-radius: 50%;
     mix-blend-mode: difference;
     transform: translate(-50%, -50%);
+    pointer-events: none; 
 }
 
+/* custom loader */
 #loader{
     cursor: none;
     width: 100%;
@@ -112,16 +125,18 @@ body{
     }
 }
 
+/* main page code start */
+
 #main{
     position: relative;
     background-color: #111;
 }
-/* #151515 */
+
 #page1{
     height: 100vh;
     width: 100%;
     background-color: #151515;
-    position: relative;
+    margin-bottom: 7vh;
 }
 
 .hero-before{
@@ -152,21 +167,21 @@ body{
 }
 
 .hero{
-    /* background-color: red; */
     width: 72%;
     margin-left: 28%;
     display: flex;
     align-items: center;
     overflow: hidden;
     position: relative;
+    z-index: 1;
 }
 
 .hero:nth-child(3){
-    margin-top: 10vh;
+    margin-top: 7vh;
 }
 
 .hero h1, #hero3 h2{
-    font-size: 7vw;
+    font-size: 7.5vw;
     text-transform: uppercase;
     line-height: 7.3vw;
 }
@@ -193,14 +208,17 @@ body{
     height: 100vh;
     width: 100%;
     background-color: #151515;
-    padding-top: 17vh;
+    padding-top: 8vh;
+    margin-top: 10vh;
 }
 
 #video-container{
     height: 66vh;
     width: 70vw;
     position: relative;
-    left: 29%;
+    left: 30%;
+    background-color: red;
+    cursor: none;
 }
 
 #video-container img{
@@ -235,11 +253,250 @@ body{
     font-size: 2vw;   
 }
 
+#video-cursor .ri-pause-circle-line{
+    display: none; 
+    font-size: 2vw;   
+
+}
+
 #page3{
     min-height: 100vh;
     width: 100%;
-    background-color: rgb(29, 28, 28);
+    background-color: #151515;
     position: relative;
+}
+
+#page3 h1{
+    font-size: 7vw;
+    text-transform: uppercase;
+    margin-left: 28%;
+    position: relative;
+}
+
+#page3 h1::before{
+    content: "02";
+    font-family: "Silk Serif";
+    font-size: 3vw;
+    position: absolute;
+    top: 6%;
+    left: -10%;
+}
+
+#page3 .underline{
+    height: 1px;
+    width: 65%;
+    background-color: #fff;
+    margin-left: 28%;
+}
+
+#page3 #image-div-container{
+    min-height: 100vh;
+    width: 100%;
+    padding: 5vh 4vw;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1vh 3vw;
+}
+
+.image-div{
+    width: 25vw;
+    height: 94vh;
+    flex-shrink: 0;
+    border-bottom: 1px solid #fff;
+    overflow: hidden;
+}
+
+.image-div > h4{
+    font-size: 2.5vw;
+    text-transform: uppercase;
+    margin-bottom: 5vh;
+}
+
+.image-div #img{
+    width: 100%;
+    height: 76%;
+    overflow: hidden;
+}
+
+.details{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 3vh 0;
+    font-size: 1.1vw;
+    
+}
+
+.details p:nth-child(1){
+    width: 60%;
+}
+
+#img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#second{
+    width: 30vw;
+    height: 106vh;
+}
+
+#second #img{
+    height: 78.5%;
+}
+
+#thrid{
+    margin-left: 4%;
+    align-self: flex-end;
+    overflow: visible;
+    display: flex;
+    align-items: flex-end;
+    border: none;
+    position: relative;
+}
+
+#thrid #circle{
+    width: 24vw;
+    height: 50vh;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 10%;
+    bottom: 5%;
+    transition: all ease .75s;
+}
+
+#circle:hover{
+    background-color: #fff;
+}
+
+#circle .ri-arrow-down-line{
+    font-size: 15vw;
+    color: rgb(46, 46, 46);
+}
+
+#circle:hover .ri-arrow-down-line{
+    display: none;
+}
+
+#circle p{
+    display: none;
+}
+
+#circle:hover p{
+    display: block;
+    width: 90%;
+    color: black;
+}
+
+#four{
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: none;
+}
+
+#four #circle{
+    width: 24vw;
+    height: 50vh;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease .75s;
+}
+
+#circle p{
+    text-align: center;
+}
+
+#circle .ri-arrow-right-down-line{
+    font-size: 15vw;
+    color: rgb(46, 46, 46);
+}
+
+#circle:hover .ri-arrow-right-down-line{
+    display: none;
+}
+
+#five{
+    margin-top: 10%;
+    width: 30vw;
+    height: fit-content;
+}
+
+#five h4{
+    text-transform: capitalize;
+}
+
+#six{
+    width: 30vw;
+}
+
+#six h4, #seven h4{
+    text-transform: capitalize;
+}
+
+#eight{
+    height: 110vh;
+    position: relative;
+    left: 5%;
+    display: flex;
+    align-items: flex-end;
+    border-bottom: none;
+}
+
+#eight #circle{
+    width: 24vw;
+    height: 50vh;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease .75s;
+}
+
+#circle .ri-arrow-right-line{
+    font-size: 15vw;
+    color: rgb(46, 46, 46);
+}
+
+#circle:hover .ri-arrow-right-line{
+    display: none;
+}
+
+#nine{
+    width: 30vw;
+    margin-left: 5%;
+    align-self: flex-end;
+}
+
+#all-project{
+    width: 25vw;
+    height: 50vh;
+    margin: 30vh auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#all-project #project-circle{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #ffa63d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #page4{
@@ -344,7 +601,6 @@ body{
 }
 
 .move-element h1{
-    /* background-color: red; */
     display: inline-block;
     text-transform: uppercase;
     font-size: 7.5vw;
@@ -396,9 +652,42 @@ footer{
     position: relative;
 }
 
-#footer-hero h1{
+#footer-hero h1 {
     font-size: 7vw;
     text-transform: uppercase;
+}
+
+
+h1.title-before.non-default span {
+    font-family: "Silk Serif";
+    font-style: italic;
+    color: transparent;
+    font-size: 7vw;
+}
+
+
+#footer-hero h1.non-default {
+    margin-top: -40px;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px #fff;
+    font-weight: 400;
+    height: 110px;
+}
+
+#footer-hero h1.default {
+    font-size: 7vw;
+    text-transform: uppercase;
+    color: transparent;
+}
+
+.footer-title{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-title i{
+    font-size: 8vw;
 }
 
 #footer-content {
@@ -429,7 +718,6 @@ footer{
 }
 
 .title-before::before{
-    /* content: "04"; */
     position: absolute;
     left: -10%;
     top: 2%;
@@ -439,6 +727,7 @@ footer{
 
 #footer-hero h1::before{
     content: "04";
+    color: white;
 }
 
 #page4-content h1::before{
@@ -447,3 +736,16 @@ footer{
     content: "03";
 }
 
+._canvas_container{
+    z-index: 999999 !important;
+    pointer-events: none;
+}
+
+#flag{
+    height: 25vw;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
